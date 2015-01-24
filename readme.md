@@ -1,1 +1,1 @@
-# Just experimenting with azure redis cache using waterline orm
+Just experimenting with azure redis cache using waterline orm
