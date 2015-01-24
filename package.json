@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha -w test/**/*spec.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +12,12 @@
     "body-parser": "^1.10.2",
     "express": "^4.11.1",
     "redis": "^0.12.1",
+    "waterline": "^0.10.16",
     "winston": "^0.8.3"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0",
+    "supertest": "^0.15.0"
   }
 }

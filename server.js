@@ -4,8 +4,9 @@
     var express = require('express');
     var bodyParser = require('body-parser');
     var redis = require('redis');
-
-    var app = express();
+    var users = require('./controllers/userController.js');
+    
+    var app = exports.app = express();
     var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
     
     app.use(bodyParser.urlencoded({extended:true}));
@@ -15,6 +16,8 @@
     var client = redis.createClient(6379, 'directory.redis.cache.windows.net');
     client.auth(process.env.REDIS_ACCESS_KEY);
 
+    app.get('/users', users.getUsers);
+    
     app.get('/get/:key', function (req, res) {
         var key = req.params.key;
         client.get(key, function (error, reply) {
